@@ -1,0 +1,38 @@
+﻿Sciaga git
+
+git init - utworzenie repozytorium
+git add - dodanie pliku do repozytorium /dodanie pliku do poczekalni
+git status - sprawdzenie statusu zmian
+git commit  -m "opis releasu"- commitowanie zmian z poczekalni
+git commit -a -m "opis releasy" -- commitowanie wszystkich plików (nie tylko dodanych do poczekalni)
+
+Plik .gitignore - pozwala na dodanie plików do ignorowania
+
+
+git log - historia repozytorium
+
+
+## repozytoria zdalne 
+git remote -v - lista repozytoriów zdlanych
+git remote add skrot link_do_repozytorium - dodanie repozytorium zdalnego
+git push -u skrot nazwa_gałęzi 
+git fetch [nazwa-zdalengo-repozytorium] - pobranie informacji o zdalnym repozytorium
+git pull  [nazwa-zdalengo-repozytorium] - megre zmian zdlanego repozytoria
+
+
+
+# zarządzanie branchami
+git branch nazwa_brancha -- utworzenie brancha 
+git checkout nazwa_brancha -- przełączenie się na inny branch
+git checkout -b nazwa_brancha -- utworzenie i przełączenie brancha
+git branch -d nazwa_brancha -- usunięcie brancha
+
+
+#MERGOWANIE GAŁĘZI
+git checkout nazwa_gałęzi
+git merge nazwa_gałęzi_z_którą robimy_merge-- mergowanie gałęzi
+w razie konfliktu trzeba dane dodac
+
+
+
+
