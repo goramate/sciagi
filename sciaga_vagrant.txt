@@ -1,0 +1,49 @@
+Vagrant ściągawka
+
+vagrant global-status
+vagrant up - podnosi wirtualkę w katalogu z plikami z vagranta
+vagrant init -m ubuntu/trusty32 - tworzy plik konfiguracyjny vagrant'a z boxem ubuntu/trusty32 
+vagrant destroy - kasuje wirtualkę 
+vagrant box list - wyświetla listę dostępnych boxów
+
+
+Domyślne hasło dla boxów vagrant/vagrant
+/Konfiguracja pliku vagrant
+config.vm.network :forwarded_port, guest: 80, host: 9876, host_ip: "127.0.0.1" - forwardowanie portów Vagranta
+config.ssh.insert_key = false - opcja pozwalająca na publikację własnego boxa - zapobiega podmianie kluczy na generowane losowo
+
+//Zarządzanie VMkami
+$ vagrant halt 
+$ vagrant destroy 
+$ vagrant suspend 
+
+
+
+
+//Tworzenie swojego boxa
+1. Tworzymy vagrantem VMkę
+2. Instalujemy co chcemy
+3 Tworzymy box
+	vagrant package --output nazwa_BOXA.box
+
+	
+//Zarządzanie boxami
+$ vagrant box list
+$ vagrant box add
+$ vagrant box remove
+
+
+//Utworzone boxy leżą w katalogu:
+ls -la ~/.vagrant.d/boxes/
+$ ls -la $VAGRANT_HOME/.vagrant.d/boxes/
+
+//Provisioning skryptem
+config.vm.provision "shell", path: "script.sh" 
+script.sh wykonywany przy pierwszym vagrant up.
+
+
+//Provisioning puppetem
+config.vm.provision "puppet"
+w katalogu projektu tworzymy katalog i plik
+manifests/default.pp
+a w nim wpisujemy klasy z puppeta

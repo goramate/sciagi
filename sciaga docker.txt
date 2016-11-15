@@ -1,0 +1,57 @@
+
+docker create --name="nazwa_kontenera" 
+docker inspect container_id
+
+
+Struktura pliku dockera:
+
+FROM nazwa_obrazu_podstawowego:wersja_obrazu (domyœlnie latest)
+MAINTAINER dane kontaktowe do autora obrazu
+LABEL etykiety w formacie klucz=wartosæ
+USER u¿ytkownik z jakiego uruchamiany jest proces
+ENV ustawienie zmiennych œrodowiskowych
+RUN polecenia do wykonania w kontenerze
+ADD plik_lokalny œcie¿ka_w_konenerze - kopiowanie pliku lokalnego do kontenera
+WORKDIR $AP - ustawienie katalogu aplikacji
+CMD ["supervisord" "-n"] - uruchomienie procesu w kontenerze
+
+
+
+docker run -d -p 8080:8080 example/docker-node-hello:latest  -- uruchomienie konteneru.
+
+
+docker ps -lista dzia³aj¹cych kontenerów
+docker ps -a --lista wszystkich kontenerów
+docker rm identyfikator --usuwanie wszystkich kontenerów
+
+
+
+Operacje na imagach:
+docker build  -t  goram/mm1 . - tworzenie obrazu z pliku dockerfile
+docker images - lista obrazów
+docker rm nazwa_obrazu - usuwanie obrazu
+
+
+
+docker push goram/test9:3 - wgranie kontenera do rejestru na dockerhub.com
+docker commit -m"baza" -a "MG" 9fed7c5f4326 goram/test9:4  --skomitowanie kontenera jako obrazu
+
+
+Tworzenie w³asnego image:
+Tworzysz plik Dockerfile:
+
+docker build -t goram/lamp .
+
+
+
+has³eko na OS boot2docker:
+user: docker
+pass: tcuser
+
+
+/usr/bin/mysqladmin -u root password 'new-password'
+cd /usr ; /usr/bin/mysqld_safe &
+
+
+Uruchomienie kontenera z mysqlem, centosem i phpem
+docker --run -d -p 22:2222 test/test
